@@ -1,33 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Accordion from './Components/Accordion';
+import AlertComp from './Components/AlertComp';
+import Counter from './Components/Counter';
+import MovieCard from './Components/MovieCard';
+import ProfileCard from './Components/ProfileCard'
+import ReusableButton from './Components/ReusableButton';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  //button properties
+  //color 
+  const color = "red";
+  const size = "sm";
+
+  const type = {
+    error: "error",
+    success: "success",
+    warning: "warning",
+  };
+  const message = {
+    error: "This is an error message",
+    success: "This is a success message",
+    warning: "This is a warning message",
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <section className='bg-gray-900'>
+        <h1 className='text-4xl font-bold text-white text-center bg-gray-800 p-5'>React Practice Playground</h1>
+        <ProfileCard />
+        <ReusableButton color={color}   size={size}>Click Me</ReusableButton>
+        <MovieCard />
+        <AlertComp type={type.success} message={message.success}/>
+        <Counter />
+        <Accordion />
+      </section>
     </>
   )
 }
